@@ -23,7 +23,7 @@ def report(mode, function):
                i+=1
 
 #DRAW TITLE/HEADER
-def title(text, length, char):
+def title(text, char, length):
     return_value="title('"+text+"', "+str(length)+", '"+char+"')"
     print((int((length-len(text))/2)*char)+text+(int((length-len(text))/2)*char))
     if(length==len((int((length-len(text))/2)*char)+text+(int((length-len(text))/2)*char))):
@@ -35,9 +35,9 @@ def title(text, length, char):
 
 #DRAW MENU OPTION
 def menu(number, text, length):
-    return_value="menu("+number+", '"+text+"', "+str(length)+")"
-    print("|" + str(number) + "." + text + ( (length-2-len(text))*" ")+"|")
-    if(length==len("|"+str(number)+"."+text+((length-2-len(text))*" ")+"|")):
+    return_value="menu("+str(number)+", '"+text+"', "+str(length)+")"
+    print("|" + str(number) + ". " + text + ( (length-5-len(text))*" ")+"|")
+    if(length==len("|"+str(number)+"."+text+((length-5-len(text))*" ")+"|")):
         return_value=return_value + ": succes"
         report(catch,return_value)
     else:
