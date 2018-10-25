@@ -1,5 +1,7 @@
 #TEXT USER INTERFACE PYTHON MODULE BY PATRYK NIEDZWIEDZINSKI
 
+#LIBRARY FOR TERMINAL SIZE 
+import shutil
 
 #--
 i=0
@@ -7,6 +9,7 @@ report_counter=0
 report_data=[]
 catch=0
 show=1
+terminalwidth = shutil.get_terminal_size().columns
 #--
 
 
@@ -27,21 +30,21 @@ def title(text, char, length):
     return_value="title('"+text+"', "+str(length)+", '"+char+"')"
     print((int((length-len(text))/2)*char)+text+(int((length-len(text))/2)*char))
     if(length==len((int((length-len(text))/2)*char)+text+(int((length-len(text))/2)*char))):
-        return_value=return_value + ": succes"
+        return_value=return_value + ": success"
         report(catch,return_value)
     else:
-        return_value="something goes wrong with " + return_value
+        return_value="Something goes wrong with " + return_value
         report(catch,return_value)
 
 #DRAW MENU OPTION
 def menu(number, text, length):
     return_value="menu("+str(number)+", '"+text+"', "+str(length)+")"
-    print("|" + str(number) + ". " + text + ( (length-5-len(text))*" ")+"|")
+    print(("|" + str(number) + ". " + text + ( (length-5-len(text))*" ")+"|").center(terminalwidth))
     if(length==len("|"+str(number)+"."+text+((length-5-len(text))*" ")+"|")):
-        return_value=return_value + ": succes"
+        return_value=return_value + ": success"
         report(catch,return_value)
     else:
-        return_value="something goes wrong with " + return_value
+        return_value="Something goes wrong with " + return_value
         report(catch,return_value)
 
 #DRAW A LINE OF CHAR
@@ -49,8 +52,8 @@ def line(char, length):
     return_value= "line('" + char + "', " + str(length) + ")"
     print(char*length)
     if(length==len(char*length)):
-        return_value=return_value + ": succes"
+        return_value=return_value + ": success"
         report(catch,return_value)
     else:
-        return_value="something goes wrong with " + return_value
+        return_value="Something goes wrong with " + return_value
         report(catch,return_value)
