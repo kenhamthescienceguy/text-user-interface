@@ -2,7 +2,7 @@
 
 #Manual
 
-Definied functions:
+Defined functions:
 
 1. title(text, char, length) - Draw header/title of interface
 	-text - title
